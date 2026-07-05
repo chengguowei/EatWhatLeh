@@ -17,7 +17,18 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5180',
   'http://127.0.0.1:5173',
-  'http://127.0.0.1:5180'
+  'http://127.0.0.1:5180',
+  process.env.FRONTEND_URL,
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null
+].filter(Boolean);
+
+const isAllowedVercelOrigin = (origin) => {
+  try {
+    const url = new URL(origin);
+    return url.hostname.endsWith('.vercel.app');
+  } catch {
+    return false;
+  }
 ];
 
 app.use(cors({
@@ -28,8 +39,9 @@ app.use(cors({
     const isLocal = origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:');
     const isGitHubDev = origin.includes('.github.dev');
     const isDevTunnel = origin.includes('.devtunnels.ms');
+    const isVercel = isAllowedVercelOrigin(origin);
     
-    if (isLocal || isGitHubDev || isDevTunnel || allowedOrigins.includes(origin)) {
+    if (isLocal || isGitHubDev || isDevTunnel || isVercel || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       console.error(`🚨 CORS Blocked Origin: ${origin}`);
