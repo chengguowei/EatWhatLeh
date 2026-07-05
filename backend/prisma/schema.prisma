@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  name      String
+  email     String   @unique
+  xp        Int      @default(0)
+  points    Int      @default(0)
+  level     Int      @default(1)
+  badges    String[] @default([])
+  createdAt DateTime @default(now())
+  reviews   Review[]
+  missions  UserMission[]
+  tagVotes  TagVote[]
+}
+
+model Restaurant {
+  id          String   @id @default(cuid())
+  osmId       String?  @unique
+  name        String
+  description String
+  cuisine     String
+  category    String
+  address     String
+  lat         Float
+  lng         Float
+  priceRange  String
+  tags        String[]
+  rating      Float    @default(0)
+  imageUrl    String
+  openHours   String
+  isHalal     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  reviews     Review[]
+  tagVotes    TagVote[]
+}
+
+model OsmTileCache {
+  id        String   @id @default(cuid())
+  minLat    Float
+  minLng    Float
+  maxLat    Float
+  maxLng    Float
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id           String     @id @default(cuid())
+  userId       String
+  restaurantId String
+  rating       Int
+  comment      String
+  imageUrl     String?
+  createdAt    DateTime   @default(now())
+  user         User       @relation(fields: [userId], references: [id])
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+
+  @@unique([userId, restaurantId])
+}
+
+model UserMission {
+  id          String   @id @default(cuid())
+  userId      String
+  missionId   String
+  completedAt DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, missionId])
+}
+
+model TagVote {
+  id           String     @id @default(cuid())
+  restaurantId String
+  tag          String
+  isPositive   Boolean    // true = agrees, false = disagrees
+  userId       String
+  createdAt    DateTime   @default(now())
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, restaurantId, tag])
+}

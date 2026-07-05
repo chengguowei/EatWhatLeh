@@ -1,0 +1,369 @@
+/* ===== PROFILE PAGE ===== */
+.profile-page { padding: 0 0 24px; }
+
+.profile-header { padding: 20px 20px 8px; }
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  padding: 0 16px 16px;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.tab-btn.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Profile Content */
+.profile-content { padding: 0 16px; display: flex; flex-direction: column; gap: 16px; }
+
+/* Sign-in prompt */
+.sign-in-prompt-box {
+  text-align: center;
+  padding: 40px 24px;
+}
+.prompt-icon { font-size: 52px; margin-bottom: 12px; }
+.sign-in-prompt-box h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.sign-in-prompt-box p { color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; }
+
+/* User Card */
+.user-card { padding: 20px; }
+
+.user-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.user-avatar { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent); flex-shrink: 0; }
+
+.user-info { flex: 1; }
+.user-name { font-size: 17px; font-weight: 700; }
+.user-email { font-size: 12px; color: var(--text-muted); margin: 2px 0 2px; }
+.user-since { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+
+.level-badge {
+  display: inline-block;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--accent-glow);
+}
+
+/* Admin Link Button */
+.admin-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-2-dim);
+  color: var(--accent-2);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.admin-link-btn:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+/* XP Section */
+.xp-section { }
+.xp-label-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+.xp-count { color: var(--accent); font-weight: 700; }
+.xp-hint { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+
+/* Stats Grid — 5 stats in a responsive wrap */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.stat-box {
+  text-align: center;
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* "Member Since" box spans full width on the second row */
+.stat-box-wide {
+  grid-column: span 4;
+}
+
+.stat-value { font-size: 22px; font-weight: 800; color: var(--accent); }
+.stat-value-sm { font-size: 14px; font-weight: 700; }
+.stat-label { font-size: 11px; color: var(--text-muted); }
+
+/* Badges */
+.badges-section { }
+.sub-section-title { font-size: 14px; font-weight: 700; color: var(--text-secondary); margin-bottom: 12px; }
+
+.badges-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.badge-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 99px !important;
+  overflow: hidden;
+}
+
+.badge-glow {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  opacity: 0.12;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.badge-emoji { font-size: 18px; flex-shrink: 0; }
+
+.badge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+
+/* Leaderboard */
+.leaderboard-content { padding: 0 16px; }
+
+.lb-list { display: flex; flex-direction: column; gap: 10px; }
+
+.lb-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+}
+
+.lb-row.rank-1 { border-color: rgba(250, 204, 21, 0.4); background: rgba(250,204,21,0.05); }
+.lb-row.rank-2 { border-color: rgba(203,213,225,0.4); background: rgba(203,213,225,0.04); }
+.lb-row.rank-3 { border-color: rgba(251,146,60,0.4);  background: rgba(251,146,60,0.04);  }
+.lb-row.lb-self { border-color: var(--accent); }
+
+.lb-rank { font-size: 22px; flex-shrink: 0; width: 36px; text-align: center; }
+
+.lb-info { flex: 1; }
+.lb-name { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.lb-level { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.lb-top-badge {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 3px;
+  display: inline-block;
+  opacity: 0.85;
+}
+
+.you-tag {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 99px;
+  font-weight: 700;
+}
+
+.lb-xp { text-align: right; }
+.lb-xp span:first-child { display: block; font-size: 18px; font-weight: 800; color: var(--accent-2); }
+.lb-xp-label { font-size: 10px; color: var(--text-muted); }
+
+.empty-lb { text-align: center; padding: 40px; color: var(--text-muted); }
+
+/* Charts & Analytics */
+.analytics-section { margin-top: 10px; }
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chart-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.chart-container { width: 100%; height: 200px; }
+
+.no-stats-placeholder {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-muted);
+}
+
+.placeholder-icon { font-size: 32px; display: block; margin-bottom: 8px; }
+.no-stats-placeholder p { font-size: 13px; line-height: 1.5; margin: 0; }
+
+/* Recent Reviews Section */
+.recent-reviews-section { margin-top: 10px; }
+
+.reviews-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.reviews-count-badge {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--accent-glow);
+}
+
+.recent-reviews-list { display: flex; flex-direction: column; gap: 12px; }
+
+.recent-review-item { padding: 14px 16px; }
+
+.review-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.review-restaurant-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.review-item-rating { color: #fbbf24; font-size: 13px; letter-spacing: 1px; }
+
+.review-category-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-bottom: 6px;
+}
+
+.review-item-comment {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0 0 8px;
+}
+
+.review-item-date { font-size: 11px; color: var(--text-muted); }
+
+.review-image-wrapper {
+  margin: 8px 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  max-width: 160px;
+  max-height: 120px;
+}
+
+.review-attached-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* See All / Show Less button */
+.see-all-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.see-all-btn:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Responsive stats grid */
+@media (max-width: 400px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-box-wide {
+    grid-column: span 2;
+  }
+}
+
+/* Premium Sign Out Button */
+.profile-signout-btn {
+  background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  border-radius: var(--radius-md) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.profile-signout-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4) !important;
+}
