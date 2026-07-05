@@ -29,7 +29,7 @@ const isAllowedVercelOrigin = (origin) => {
   } catch {
     return false;
   }
-];
+};
 
 app.use(cors({
   origin: (origin, callback) => {
