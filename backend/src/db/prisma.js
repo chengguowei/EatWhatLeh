@@ -20,7 +20,10 @@ if (useMock) {
     const pgModule = await import('pg');
     const pg = pgModule.default || pgModule;
     
-    const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+    const pool = new pg.Pool({
+      connectionString: process.env.DATABASE_URL,
+      family: 4,
+    });
     const adapter = new PrismaPg(pool);
     
     prisma = new PrismaClient({ adapter });
